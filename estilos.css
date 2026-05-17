@@ -1,0 +1,22 @@
+body {
+font-family: Arial;
+}
+
+.bg-login {
+height: 100vh;
+background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.card-hover:hover {
+transform: scale(1.05);
+transition: 0.3s;
+}
+
+.img-hover img {
+width: 100%;
+transition: 0.4s;
+}
+
+.img-hover:hover img {
+transform: scale(1.2);
+}
