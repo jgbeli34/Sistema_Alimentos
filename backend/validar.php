@@ -1,10 +1,23 @@
 <?php
 session_start();
 
-if($_POST["user"] == "admin" && $_POST["pass"] == "123"){
+$usuario = $_POST["usuario"];
+$clave = $_POST["clave"];
+
+if($usuario == "admin" && $clave == "1234"){
+
     $_SESSION["login"] = true;
-    header("Location: dashboard.php");
+
+    header("Location: ../frontend/dashboard.php");
+
 }else{
-    header("Location: login.php");
+
+    echo "
+    <script>
+    alert('Usuario o contraseña incorrectos');
+    window.location='../frontend/login.php';
+    </script>
+    ";
+
 }
 ?>

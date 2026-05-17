@@ -26,7 +26,7 @@ if(!isset($_SESSION["login"])) header("Location: login.php");
 <div class="col-md-4">
 <div class="card shadow card-hover">
 <div class="img-hover">
-<img src="img/comida1.jpg">
+<img src="img/img1.jpg">
 </div>
 <div class="card-body text-center">
 <h5>Productos</h5>
