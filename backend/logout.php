@@ -1,5 +1,11 @@
 <?php
+
 session_start();
+
+// Destruir sesión
 session_destroy();
-header("Location: login.php");
+
+// Volver al login
+header("Location: ../frontend/login.php");
+
 ?>

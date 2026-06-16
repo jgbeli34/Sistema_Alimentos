@@ -1,5 +1,6 @@
 <?php
 
+// Conexión a MySQL
 $conexion = new mysqli(
     "localhost",
     "root",
@@ -7,6 +8,7 @@ $conexion = new mysqli(
     "sistema_alimentos"
 );
 
+// Validación de conexión
 if($conexion->connect_error){
     die("Error de conexión");
 }
