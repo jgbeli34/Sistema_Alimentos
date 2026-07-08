@@ -89,7 +89,7 @@ Entrar
 <div class="card shadow-lg border-0 card-hover h-100">
 
 <div class="img-hover">
-<img src="../img/comida2.jpg"
+<img src="../img/img2.jpg"
 class="card-img-top"
 style="height:250px; object-fit:cover;">
 </div>
@@ -119,7 +119,7 @@ Próximamente
 <div class="card shadow-lg border-0 card-hover h-100">
 
 <div class="img-hover">
-<img src="../img/comida3.jpg"
+<img src="../img/img3.jpg"
 class="card-img-top"
 style="height:250px; object-fit:cover;">
 </div>
