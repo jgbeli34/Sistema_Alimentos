@@ -1,44 +1,50 @@
 <?php
-session_start();
+header("Content-Type: application/json");
 
 include "conexion.php";
+
+// Verificar que lleguen los datos
+if (!isset($_POST["usuario"]) || !isset($_POST["password"])) {
+    echo json_encode([
+        "estado" => "error",
+        "mensaje" => "Faltan parámetros."
+    ]);
+    exit();
+}
 
 $usuario = $_POST["usuario"];
 $password = $_POST["password"];
 
 // Buscar usuario
-$sql = "SELECT * FROM usuarios WHERE usuario='$usuario'";
-
+$sql = "SELECT * FROM usuarios WHERE usuario = '$usuario'";
 $resultado = $conexion->query($sql);
 
-if($resultado->num_rows > 0){
+if ($resultado->num_rows > 0) {
 
     $fila = $resultado->fetch_assoc();
 
-    if(password_verify($password,$fila["password"])){
+    if (password_verify($password, $fila["password"])) {
 
-        $_SESSION["login"] = true;
-        $_SESSION["usuario"] = $usuario;
+        echo json_encode([
+            "estado" => "ok",
+            "mensaje" => "Autenticación satisfactoria"
+        ]);
 
-        // Ir al sistema principal
-        header("Location: ../frontend/dashboard.php");
-        exit();
+    } else {
 
-    }else{
-
-        echo "<script>
-        alert('Contraseña incorrecta');
-        window.location='index.html';
-        </script>";
+        echo json_encode([
+            "estado" => "error",
+            "mensaje" => "Contraseña incorrecta"
+        ]);
 
     }
 
-}else{
+} else {
 
-    echo "<script>
-    alert('El usuario no existe');
-    window.location='index.html';
-    </script>";
+    echo json_encode([
+        "estado" => "error",
+        "mensaje" => "El usuario no existe"
+    ]);
 
 }
 ?>
